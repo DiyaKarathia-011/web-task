@@ -1,0 +1,482 @@
+:root {
+  --bg: #FBF9F7;
+  --ink: #262626;
+  --line: #8B8B8B;
+  --orange: #E8703A;
+  --peach: #F7DED4;
+  --peach-line: #EC9A73;
+  --muted: #8A8A8A;
+  --pad: clamp(16px, 4vw, 57px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+}
+
+body {
+  font-family: 'Manrope', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased
+}
+
+.page {
+  max-width: 1440px;
+  margin: 0 auto;
+  background: var(--bg)
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  --u: min(1vw, 14.4px);
+  position: relative;
+  min-height: calc(var(--u)*38.5);
+  padding: 0 calc(var(--u)*1.5) calc(var(--u)*.8) calc(var(--u)*2.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden
+}
+
+.hero h1 {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: calc(var(--u)*7.22);
+  line-height: 1;
+  letter-spacing: -.01em;
+  position: relative;
+  z-index: 2
+}
+
+.hero .h-top {
+  align-self: flex-start;
+  padding-top: calc(var(--u)*.1)
+}
+
+.hero .h-bottom {
+  align-self: flex-end;
+  text-align: right
+}
+
+.tablet-wrap {
+  position: absolute;
+  left: 52.2%;
+  top: 45.5%;
+  width: 28%;
+  aspect-ratio: 1/1;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none
+}
+
+.tablet-wrap img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: auto;
+  transform: translate(-50%, -50%) rotate(-60deg);
+  user-select: none
+}
+
+.tablet-shadow {
+  position: absolute;
+  left: 36.7%;
+  top: 88.5%;
+  width: 17.3%;
+  height: calc(var(--u)*1.6);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .3);
+  filter: blur(7px);
+  z-index: 0;
+  pointer-events: none
+}
+
+.intro {
+  position: absolute;
+  left: calc(var(--u)*1.6);
+  top: 65.9%;
+  width: calc(var(--u)*32.6);
+  height: 29.4%;
+  padding: calc(var(--u)*2) calc(var(--u)*8.6) 0 calc(var(--u)*2.5);
+  font-size: max(11px, calc(var(--u)*.972));
+  line-height: 2.03;
+  font-weight: 600;
+  white-space: nowrap;
+  border-top: 1px dashed var(--orange);
+  border-left: 1px dashed var(--orange);
+  z-index: 2
+}
+
+.intro::after {
+  content: "";
+  position: absolute;
+  top: -3.5px;
+  right: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange)
+}
+
+/* ---------- FEATURES ---------- */
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line)
+}
+
+.feature {
+  padding: 24px 30px 26px;
+  border-right: 1px solid var(--line);
+  min-height: 182px
+}
+
+.feature:last-child {
+  border-right: 0
+}
+
+.feature svg {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 22px;
+  display: block
+}
+
+.feature h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px
+}
+
+.feature p {
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 500
+}
+
+/* ---------- CALLOUT ---------- */
+.callout-wrap {
+  padding: 60px var(--pad)
+}
+
+.callout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: var(--peach);
+  border: 1px solid var(--peach-line);
+  height: 86px;
+  padding: 0 20px;
+  text-align: center
+}
+
+.callout svg {
+  width: 36px;
+  height: 36px;
+  flex: none
+}
+
+.callout p {
+  font-size: clamp(14px, 1.67vw, 24px);
+  font-weight: 500
+}
+
+/* ---------- INGREDIENTS ---------- */
+.ingredients {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line)
+}
+
+.ing-media {
+  position: relative;
+  min-height: 450px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #c9d0cb, #b9c0b8)
+}
+
+.ing-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block
+}
+
+.ing-list {
+  border-left: 1px solid var(--line);
+  display: flex;
+  flex-direction: column
+}
+
+.ing-list h2 {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: clamp(30px, 3.9vw, 56px);
+  line-height: 1.02;
+  padding: clamp(18px, 2vw, 30px) clamp(18px, 2.8vw, 40px) clamp(14px, 1.6vw, 24px);
+  min-height: 160px
+}
+
+.ing {
+  border-top: 1px solid var(--line);
+  padding: 26px clamp(18px, 2.8vw, 40px);
+  flex: 1;
+  cursor: pointer;
+  background: transparent;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+  width: 100%
+}
+
+.ing:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: -2px
+}
+
+.ing .icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #EDEFF5;
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+  flex: none
+}
+
+.ing .icon .kiwi {
+  width: 50%;
+  height: 50%;
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+  mix-blend-mode: multiply
+}
+
+.ing .name {
+  font-size: 15px;
+  font-weight: 700
+}
+
+.ing .name small {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-left: 4px
+}
+
+.ing .desc {
+  font-size: 15px;
+  margin-top: 10px;
+  font-weight: 500
+}
+
+.ing .more {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #555;
+  transition: max-height .35s ease, opacity .35s ease, margin .35s ease
+}
+
+.ing.open .more {
+  max-height: 120px;
+  opacity: 1;
+  margin-top: 10px
+}
+
+.see-all {
+  display: flex;
+  justify-content: flex-end;
+  padding: 30px clamp(16px, 2.8vw, 40px);
+}
+
+.see-all button {
+  background: none;
+  border: 0;
+  font-family: inherit;
+  font-size: 13px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--orange);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer
+}
+
+/* ---------- NOT INSIDE ---------- */
+.not-inside {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 26px clamp(16px, 2.3vw, 33px) 28px
+}
+
+.not-inside h2 {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: clamp(22px, 2.5vw, 36px);
+  margin-bottom: 12px
+}
+
+.not-inside ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px
+}
+
+.not-inside li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500
+}
+
+.not-inside li svg {
+  width: 14px;
+  height: 14px;
+  flex: none
+}
+
+.bottom-space {
+  height: 56px
+}
+
+/* ---------- TABLET (<= 1024) ---------- */
+@media (max-width:1024px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr)
+  }
+
+  .feature:nth-child(2) {
+    border-right: 0
+  }
+
+  .feature:nth-child(-n+2) {
+    border-bottom: 1px solid var(--line)
+  }
+
+  .callout-wrap {
+    padding: 40px var(--pad)
+  }
+}
+
+/* ---------- MOBILE (<= 767) ---------- */
+@media (max-width:767px) {
+  .hero {
+    min-height: 0;
+    padding: 0 16px 28px;
+    gap: 0
+  }
+
+  .hero h1 {
+    font-size: 11.5vw
+  }
+
+  .hero .h-top,
+  .hero .h-bottom {
+    align-self: flex-start;
+    text-align: left
+  }
+
+  .tablet-wrap {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 72%;
+    margin: -30px auto -40px;
+    order: 2
+  }
+
+  .tablet-shadow {
+    display: none
+  }
+
+  .hero .h-bottom {
+    order: 3;
+    align-self: flex-end;
+    text-align: right
+  }
+
+  .intro {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    order: 4;
+    margin-top: 24px;
+    padding: 18px 0 0 18px;
+    font-size: 13px;
+    line-height: 1.7;
+    white-space: normal
+  }
+
+  .intro br {
+    display: none
+  }
+
+  .features {
+    grid-template-columns: 1fr
+  }
+
+  .feature,
+  .feature:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    min-height: 0
+  }
+
+  .feature:last-child {
+    border-bottom: 0
+  }
+
+  .callout {
+    height: auto;
+    padding: 16px;
+    flex-direction: column;
+    gap: 8px
+  }
+
+  .ingredients {
+    grid-template-columns: 1fr
+  }
+
+  .ing-media {
+    min-height: 320px
+  }
+
+  .ing-list {
+    border-left: 0;
+    border-top: 1px solid var(--line)
+  }
+
+  .ing-list h2 {
+    min-height: 0
+  }
+
+  .see-all {
+    padding: 20px 16px
+  }
+
+  .not-inside li {
+    font-size: 14px
+  }
+}
